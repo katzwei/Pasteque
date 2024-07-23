@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://csuq333iaquvr"]
+
+[ext_resource type="Script" path="res://scenes/debug/debug.gd" id="1_d31gw"]
+[ext_resource type="PackedScene" uid="uid://ucsv8e65ld5j" path="res://scenes/fruit/fruit.tscn" id="2_7djxj"]
+[ext_resource type="Resource" uid="uid://qi3u83tg2r0u" path="res://resources/fruits.tres" id="3_8xpld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcy1b"]
+size = Vector2(34, 460)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tpyu2"]
+size = Vector2(414, 28)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_d31gw")
+fruitPackedScene = ExtResource("2_7djxj")
+fruitsResource = ExtResource("3_8xpld")
+
+[node name="FruitScaleSlider" type="HSlider" parent="."]
+offset_left = 26.0
+offset_top = 30.0
+offset_right = 226.0
+offset_bottom = 46.0
+size_flags_horizontal = 0
+
+[node name="FruitClearButton" type="Button" parent="."]
+offset_left = 18.0
+offset_top = 51.0
+offset_right = 75.0
+offset_bottom = 82.0
+text = "CLEAR"
+
+[node name="FruitContinuallyCheck" type="CheckButton" parent="."]
+offset_left = 75.0
+offset_top = 52.0
+offset_right = 235.0
+offset_bottom = 83.0
+text = "CONTINUALLY"
+
+[node name="WallV0" type="StaticBody2D" parent="."]
+position = Vector2(76, 340)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallV0"]
+shape = SubResource("RectangleShape2D_fcy1b")
+
+[node name="WallV1" type="StaticBody2D" parent="."]
+position = Vector2(457, 340)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallV1"]
+shape = SubResource("RectangleShape2D_fcy1b")
+
+[node name="WallH0" type="StaticBody2D" parent="."]
+position = Vector2(266, 556)
+collision_mask = 0
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallH0"]
+shape = SubResource("RectangleShape2D_tpyu2")
+
+[connection signal="pressed" from="FruitClearButton" to="." method="_on_fruit_clear_button_pressed"]

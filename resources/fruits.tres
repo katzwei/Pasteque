@@ -1,0 +1,62 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://qi3u83tg2r0u"]
+
+[ext_resource type="Script" path="res://resources/fruits.gd" id="1_aseq2"]
+
+[resource]
+script = ExtResource("1_aseq2")
+types = [{
+"fruit_name": "cerise",
+"scale_factor": 0.06,
+"score_value": 10,
+"sprite_texture_path": "res://assets/fruits/cerise.png"
+}, {
+"fruit_name": "fraise",
+"scale_factor": 0.12,
+"score_value": 25,
+"sprite_texture_path": "res://assets/fruits/fraise.png"
+}, {
+"fruit_name": "raisin",
+"scale_factor": 0.18,
+"score_value": 50,
+"sprite_texture_path": "res://assets/fruits/raisin.png"
+}, {
+"fruit_name": "dekopon",
+"scale_factor": 0.25,
+"score_value": 75,
+"sprite_texture_path": "res://assets/fruits/dekopon.png"
+}, {
+"fruit_name": "orange",
+"scale_factor": 0.32,
+"score_value": 100,
+"sprite_texture_path": "res://assets/fruits/orange.png"
+}, {
+"fruit_name": "pomme",
+"scale_factor": 0.39,
+"score_value": 110,
+"sprite_texture_path": "res://assets/fruits/pomme.png"
+}, {
+"fruit_name": "poire",
+"scale_factor": 0.5,
+"score_value": 125,
+"sprite_texture_path": "res://assets/fruits/poire.png"
+}, {
+"fruit_name": "peche",
+"scale_factor": 0.61,
+"score_value": 150,
+"sprite_texture_path": "res://assets/fruits/peche.png"
+}, {
+"fruit_name": "anana",
+"scale_factor": 0.75,
+"score_value": 200,
+"sprite_texture_path": "res://assets/fruits/anana.png"
+}, {
+"fruit_name": "melon",
+"scale_factor": 1.0,
+"score_value": 300,
+"sprite_texture_path": "res://assets/fruits/melon.png"
+}, {
+"fruit_name": "pasteque",
+"scale_factor": 1.25,
+"score_value": 500,
+"sprite_texture_path": "res://assets/fruits/pasteque.png"
+}]

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1ruiqattj2so"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1wsnb"]
+[ext_resource type="Texture2D" uid="uid://ckokd4hsyt0q3" path="res://assets/player.png" id="1_711je"]
+[ext_resource type="Texture2D" uid="uid://4oek1r77sr81" path="res://assets/fruits/placeholder.png" id="3_7pre4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lx2ef"]
+size = Vector2(120, 200)
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_1wsnb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lx2ef")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_711je")
+
+[node name="FruitPosition" type="Marker2D" parent="."]
+position = Vector2(0, 135)
+
+[node name="Fruit" type="Sprite2D" parent="."]
+position = Vector2(0, 40)
+texture = ExtResource("3_7pre4")

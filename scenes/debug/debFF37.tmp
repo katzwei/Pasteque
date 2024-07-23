@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://csuq333iaquvr"]
+
+[ext_resource type="Script" path="res://scenes/debug/debug.gd" id="1_d31gw"]
+[ext_resource type="PackedScene" uid="uid://ucsv8e65ld5j" path="res://scenes/fruit/fruit.tscn" id="2_7djxj"]
+[ext_resource type="Resource" uid="uid://qi3u83tg2r0u" path="res://resources/fruits.tres" id="3_8xpld"]
+[ext_resource type="PackedScene" uid="uid://c226ydg5srbcv" path="res://scenes/next_fruit/nextFruit.tscn" id="4_hqg53"]
+[ext_resource type="PackedScene" uid="uid://d1ruiqattj2so" path="res://scenes/player/player.tscn" id="5_20b1b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fcy1b"]
+size = Vector2(34, 500)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8aoa"]
+size = Vector2(472, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cw1lb"]
+size = Vector2(402, 102)
+
+[node name="Node" type="Node"]
+script = ExtResource("1_d31gw")
+fruitPackedScene = ExtResource("2_7djxj")
+fruitsResource = ExtResource("3_8xpld")
+
+[node name="FruitTypeSlider" type="HSlider" parent="."]
+offset_left = 515.0
+offset_top = 395.0
+offset_right = 715.0
+offset_bottom = 411.0
+size_flags_horizontal = 0
+
+[node name="FruitClearButton" type="Button" parent="."]
+offset_left = 507.0
+offset_top = 416.0
+offset_right = 564.0
+offset_bottom = 447.0
+text = "CLEAR"
+
+[node name="FruitContinuousCheck" type="CheckButton" parent="."]
+offset_left = 564.0
+offset_top = 417.0
+offset_right = 738.0
+offset_bottom = 448.0
+text = "CONTINUOUSLY"
+
+[node name="FruitScaleSlider" type="HSlider" parent="."]
+offset_left = 510.0
+offset_top = 473.0
+offset_right = 710.0
+offset_bottom = 489.0
+max_value = 10.0
+step = 0.1
+
+[node name="FruitScaleCheck" type="CheckButton" parent="."]
+offset_left = 511.0
+offset_top = 493.0
+offset_right = 688.0
+offset_bottom = 524.0
+text = "OVERRIDE SCALE"
+
+[node name="WallV0" type="StaticBody2D" parent="."]
+position = Vector2(27, 446)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallV0"]
+shape = SubResource("RectangleShape2D_fcy1b")
+
+[node name="WallV1" type="StaticBody2D" parent="."]
+position = Vector2(465, 446)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallV1"]
+shape = SubResource("RectangleShape2D_fcy1b")
+
+[node name="WallH0" type="StaticBody2D" parent="."]
+position = Vector2(246, 686)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WallH0"]
+shape = SubResource("RectangleShape2D_s8aoa")
+
+[node name="NextFruit" parent="." instance=ExtResource("4_hqg53")]
+offset_left = 502.0
+offset_top = 196.0
+offset_right = 758.0
+offset_bottom = 544.0
+
+[node name="NextFruitCheck" type="CheckButton" parent="."]
+offset_left = 496.0
+offset_top = 289.0
+offset_right = 574.0
+offset_bottom = 320.0
+text = "USE"
+
+[node name="PlayerArea" type="Area2D" parent="."]
+position = Vector2(246, 175)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerArea"]
+position = Vector2(0, -31)
+shape = SubResource("RectangleShape2D_cw1lb")
+
+[node name="Player" parent="." instance=ExtResource("5_20b1b")]
+position = Vector2(245, 157)
+
+[connection signal="pressed" from="FruitClearButton" to="." method="_on_fruit_clear_button_pressed"]
+[connection signal="drag_ended" from="FruitScaleSlider" to="." method="_on_fruit_scale_slider_drag_ended"]
